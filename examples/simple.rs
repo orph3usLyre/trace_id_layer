@@ -1,8 +1,8 @@
 use axum::{Router, routing::get};
 use http::StatusCode;
 use tokio::signal;
-use tracing::info;
 use trace_id_layer::TraceId;
+use tracing::info;
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
@@ -23,12 +23,12 @@ async fn main() -> anyhow::Result<()> {
 }
 
 pub async fn index(trace_id: TraceId) -> String {
-    info!("Index handler - TraceId: {}", trace_id.0);
-    format!("Hello! Your trace ID is: {}", trace_id.0)
+    info!("Index handler - TraceId: {}", trace_id);
+    format!("Hello! Your trace ID is: {}", trace_id)
 }
 
 pub async fn healthcheck(trace_id: TraceId) -> StatusCode {
-    info!("Healthcheck - TraceId: {}", trace_id.0);
+    info!("Healthcheck - TraceId: {}", trace_id);
     StatusCode::OK
 }
 

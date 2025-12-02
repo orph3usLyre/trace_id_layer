@@ -610,6 +610,7 @@ dependencies = [
  "axum",
  "http",
  "tokio",
+ "tower",
  "tower-http",
  "tracing",
  "tracing-subscriber",
