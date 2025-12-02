@@ -35,12 +35,12 @@ use axum::http::StatusCode;
 use trace_id_layer::TraceId;
 
 async fn my_handler(trace_id: TraceId) -> String {
-    // The trace_id is available as trace_id.0
-    format!("Request trace ID: {}", trace_id.0)
+    // The trace_id is available as trace_id
+    format!("Request trace ID: {}", trace_id)
 }
 
 async fn another_handler(trace_id: TraceId) -> StatusCode {
-    tracing::info!("Processing request with trace_id: {}", trace_id.0);
+    tracing::info!("Processing request with trace_id: {}", trace_id);
     StatusCode::OK
 }
 ```
